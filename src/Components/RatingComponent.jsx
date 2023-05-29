@@ -1,12 +1,14 @@
-import { useState } from "react";
 import iconStar from "../../images/icon-star.svg";
 
-const RatingComponent = ({submitData}) => {
-    const [active, setActive] = useState("");
-
+const RatingComponent = ({ submitData, setRadioData, radioData }) => {
   const handleChange = (e) => {
-    setActive(e.target.value);
+    setRadioData(e.target.value);
   };
+
+  const handleClick = () => {
+    radioData !== "uncheked" ? submitData(true) : null;
+  };
+
   const radioButtons = () => {
     const buttons = [];
     for (let i = 1; i <= 5; i++) {
@@ -14,7 +16,7 @@ const RatingComponent = ({submitData}) => {
         <label key={i} className="text-white">
           <div
             className={`w-[50px] h-[50px] sm:w-20 sm:h-20 sm:text-xl cursor-pointer flex justify-center items-center rounded-full  hover:bg-gray-400 ${
-              active === `${i}` ? "bg-orange-400/90" : "bg-gray-800"
+              radioData === `${i}` ? "bg-orange-400/90" : "bg-gray-800"
             }`}
           >
             <input
@@ -51,9 +53,10 @@ const RatingComponent = ({submitData}) => {
           {radioButtons()}
         </div>
         <div className="flex justify-center">
-          <button className="w-full h-20 text-white text-xl font-medium rounded-full tracking-[3px] bg-orange-400/90 hover:bg-white hover:text-orange-400"
-         
-         onClick={() => submitData(true)}>
+          <button
+            className="w-full h-20 text-white text-xl font-medium rounded-full tracking-[3px] bg-orange-400/90 hover:bg-white hover:text-orange-400"
+            onClick={handleClick}
+          >
             SUBMIT
           </button>
         </div>
