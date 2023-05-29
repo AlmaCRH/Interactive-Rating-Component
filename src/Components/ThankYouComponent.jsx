@@ -15,10 +15,7 @@ const ThankYouComponent = ({ radioData }) => {
           <h1 className="text-white text-center text-3xl font-semibold tracking-wide">
             Thank you!
           </h1>
-          <p
-            className="text-gray-400 text-center
-text-lg"
-          >
+          <p className="text-gray-400 text-center text-lg">
             We appreciate you taking the time to give a rating. If you ever need
             more support, {"don't"} hesitate to get in touch!
           </p>
